@@ -2,11 +2,11 @@
 
 echo Hello People
 
- ## echo to print multiple lines
- echo -e "statement1\n , statement2"
+## echo to print multiple lines
+echo -e "statement1,\nstatement2"
 
- # echo to print colors
- # syntax: echo -e "\e[COLORCODEmMessage
+# echo to print colors
+# syntax: echo -e "\e[COLORCODEmMessage
 
  # COLORS        CODE
 # RED           31
