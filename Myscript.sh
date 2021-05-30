@@ -3,10 +3,11 @@
   echo hello world
 
 #variables
-NAME="nandini"
-echo "My Name is $NAME"
+#NAME="nandini"
+#echo "My Name is $NAME"
 
-#userINPUT
-read -p "enter you name :NAME"
-echo "Hello $NAME , Nice to Meet YOU"
+##userINPUT
+
+read -p 'Enter your Name: ' name
+echo "Your Name = $name"
 
