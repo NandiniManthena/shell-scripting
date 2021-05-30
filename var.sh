@@ -12,5 +12,10 @@ echo "Hey Nandu, today is $DATE"
 NO_OF_USERS=$(who | wc -1)
 echo "Number of users logged in the system $NO_OF_USERS"
 
+ADD=$((2+4+5))
+BIG=$((10+2+50))
+echo BIG=$BIG
+
+
 
 
