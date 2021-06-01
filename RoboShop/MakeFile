@@ -3,4 +3,6 @@ help:		## Print Help Message
 
 frontend:	## Install Frontend Component
  	@sh components/frontend.sh
+ 	@echo Hi frontend
+
 
