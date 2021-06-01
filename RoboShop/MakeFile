@@ -3,6 +3,8 @@ help:		## Print Help Message
 
 frontend:	## Install Frontend Component
  	@sh components/frontend.sh
- 	@echo Hi frontend
+
+catalogue:	## Install Catalogue Component
+	@sh components/catalogue.sh
 
 
