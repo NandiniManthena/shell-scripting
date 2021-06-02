@@ -2,7 +2,7 @@
 COMPONENT=$1
 
 ## =z validates the variable empty , true if its empty
-if [-z "${COMPONENT}" ]; then
+if [ -z "${COMPONENT}" ]; then
   echo "component input is needed"
   exit 1
 fi
