@@ -24,4 +24,3 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
 fi
 
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
-© 2021 GitHub, Inc.
