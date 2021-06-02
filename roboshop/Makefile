@@ -1,7 +1,7 @@
 help:
 	@echo
 
-frontend:
+frontend:	## Install MongoDB Component
 	@sh /components/frontend.sh
 
 mongodb:	## Install MongoDB Component
