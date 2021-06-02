@@ -7,5 +7,7 @@ STAT(){
     echo -e "\e[1;32m done\e[0m"
   else
   echo -e "\e[1;31m failed\e[0m"
+  echo -e "\t\e[1;323m check the log file : /tmp/roboshop.log\e[0m"
+  exit 1
   fi
 }
