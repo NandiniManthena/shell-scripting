@@ -1,10 +1,12 @@
 #!/bin/bash
 
 source components/common.sh
+rm -f /tmp/roboshop.log
 
 HEAD "Installing Nginx...."
-yum install nginxoii -y &>>/tmp/roboshop.log
+yum install nginx -y &>>/tmp/roboshop.log
 STAT $?
+
 
 
 
