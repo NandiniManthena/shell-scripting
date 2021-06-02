@@ -15,17 +15,17 @@ HEAD "Delete old HTML DOCS\t"
 rm -rf /usr/share/nginx/html/*
 STAT $?
 
-HEAD "Extract download content\t"
+HEAD "Extract download content"
 unzip -d /usr/share/nginx/html /tmp/frontend.zip &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/frontend-main/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
 mv /usr/share/nginx/html/static/* /usr/share/nginx/html/. &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Update Nginx Configuration\t"
+HEAD "Update Nginx Configuration"
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
-HEAD "Start Nginx\t"
+HEAD "Start Nginx\t\t\t\t"
 systemctl restart nginx &>>/tmp/roboshop.log
 systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
