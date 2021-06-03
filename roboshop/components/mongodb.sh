@@ -16,4 +16,10 @@ HEAD "Install Mongodb\t"
 yum install -y mongodb-org &>>/tmp/roboshop.sh
 STAT $?
 
+HEAD "Start MongoDB Service\t\t"
+systemctl enable mongod &>>/tmp/roboshop.log
+systemctl restart mongod &>>/tmp/roboshop.log
+STAT $?
+
+
 
