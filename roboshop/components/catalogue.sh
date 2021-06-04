@@ -8,7 +8,12 @@ HEAD "Installing NodeJS"
  STAT $?
 
 HEAD "ADD Roboshop App USer"
+id roboshop &>>/tmp/roboshop.log
+if ( $? -eq 0); then
+echo user is already there &>>/tmp/roboshop.log
+else
 useradd roboshop &>>/tmp/roboshop.log
+fi
 STAT $?
 
 HEAD "Download curl from Git"
