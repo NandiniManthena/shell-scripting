@@ -10,11 +10,13 @@ HEAD "Installing NodeJS"
 HEAD "ADD Roboshop App USer"
 id roboshop &>>/tmp/roboshop.log
 if ( $? -eq 0); then
-echo user is already there &>>/tmp/roboshop.log
+  echo user is already thereso skippion &>>/tmp/roboshop.log
+  STAT $?
 else
-useradd roboshop &>>/tmp/roboshop.log
+  useradd roboshop &>>/tmp/roboshop.log
+  STAT $?
 fi
-STAT $?
+
 
 HEAD "Download curl from Git"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"&>>/tmp/roboshop.log
