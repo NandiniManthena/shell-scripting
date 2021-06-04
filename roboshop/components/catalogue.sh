@@ -29,5 +29,10 @@ HEAD "Install nodejs dependencies"
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
+HEAD "'Fix Permissions to App content"
+chown roboshop:roboshop /home/roboshop -R
+STAT $?
+
+
 
 
