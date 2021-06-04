@@ -9,7 +9,7 @@ HEAD "Installing NodeJS"
 
 HEAD "ADD Roboshop App USer"
 id roboshop &>>/tmp/roboshop.log
-if ( $? -eq 0); then
+if [ $? -eq 0 ]; then
   echo user is already thereso skippion &>>/tmp/roboshop.log
   STAT $?
 else
@@ -17,13 +17,12 @@ else
   STAT $?
 fi
 
-
 HEAD "Download curl from Git"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"&>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Extract the downloaded archive"
-cd /home/roboshop && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
+cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 STAT $?
 
 HEAD "Install nodejs dependencies"
