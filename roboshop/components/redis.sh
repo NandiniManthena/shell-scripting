@@ -12,7 +12,7 @@ HEAD "install redis"
  STAT $?
 
 HEAD "update listen address in redis config"
-sed -i -e 's/127.0.0.1/0.0.0.0/'/etc/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
 STAT $?
 
 HEAD "start redis service"
