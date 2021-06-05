@@ -10,3 +10,11 @@ HEAD "set up Redis Repos"
 HEAD "install redis"
  yum install redis -y &>>/tmp/roboshop.log
  STAT $?
+
+HEAD "update listen address in redis config"
+sed -i -e 's/127.0.0.1/0.0.0.0/'/etc/redis.conf
+STAT $?
+
+HEAD "start redis service"
+ systemctl enable redis &>>/tmp/roboshop.log && systemctl restart redis &>>/tmp/roboshop.log
+STAT $?
