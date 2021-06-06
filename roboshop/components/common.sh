@@ -71,8 +71,8 @@ MAVEN(){
   APP_USER_ADD
   DOWNLOAD_FROM_GITHUB $1
 
-  HEAD "Make Application package"
-  cd /home/roboshop/$1 && mvn clean pacakge &>>/tmp/roboshop.log && mv target/$1-1.0.jar $1.jar &>>/tmp/roboshop.log
+   HEAD "Make Application Package"
+  cd /home/roboshop/$1 && mvn clean package &>> /tmp/roboshop.log && mv target/$1-1.0.jar $1.jar  &>>/tmp/roboshop.log
   STAT $?
 
   SETUP_SYSTEMD "$1"
