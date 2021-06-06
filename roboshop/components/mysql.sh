@@ -35,8 +35,8 @@ fi
 
 DOWNLOAD_FROM_GITHUB mysql
 
-HEAD "load shipping schema"
-cd /tmp && unzip -o mysql.zip &>>/tmp/roboshop.log && cd mysql-main && mysql -u root -pRoboshop@1 <shipping.sql &>>/tmp/roboshop.log
+HEAD "Load Shipping Schema"
+cd /tmp && unzip -o mysql.zip &>>/tmp/roboshop.log && cd mysql-main && mysql -u root -pRoboShop@1 <shipping.sql  &>>/tmp/roboshop.log
 STAT $?
 
 
