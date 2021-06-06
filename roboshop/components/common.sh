@@ -57,6 +57,6 @@ HEAD "'Fix Permissions to App content"
 chown roboshop:roboshop /home/roboshop -R
 STAT $?
 
-SETUP_SYSTEMD '$1'
+SETUP_SYSTEMD "$1"
 
 }
