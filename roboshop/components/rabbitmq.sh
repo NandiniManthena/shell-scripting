@@ -24,7 +24,7 @@ STAT $?
 
 HEAD "Start RabbitMQ Server"
 systemctl enable rabbitmq-server &>>/tmp/roboshop.log && systemctl start rabbitmq-server &>>/tmp/roboshop.log
-STAT $
+STAT $?
 
 HEAD "Create Application User in RabbitMQ"
 rabbitmqctl list_users | grep roboshop &>>/tmp/roboshop.log
