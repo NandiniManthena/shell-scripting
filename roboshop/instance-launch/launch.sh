@@ -8,7 +8,7 @@ if [ -z "${COMPONENT}" ]; then
   exit 1
 fi
 
-LID=lt-08711b3af4e5b79e7
+LID=lt-0eec83bb1763e9a8a
 LVER=1
 
 ## Validate If Instance is already there
