@@ -47,6 +47,12 @@ DOWNLOAD_FROM_GITHUB() {
   STAT $?
 }
 
+FIX_APP_CONENT_PERM() {
+  HEAD "Fix Permissions to App Content"
+  chown roboshop:roboshop /home/roboshop -R
+  STAT $?
+}
+
 NODEJS(){
   HEAD "Installing NodeJS"
  yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
@@ -77,6 +83,29 @@ MAVEN(){
 
    HEAD "Make Application Package"
   cd /home/roboshop/$1 && mvn clean package &>> /tmp/roboshop.log && mv target/$1-1.0.jar $1.jar  &>>/tmp/roboshop.log
+  STAT $?
+
+  SETUP_SYSTEMD "$1"
+}
+
+
+PYTHON3() {
+  HEAD "Install Python3"
+  yum install python36 gcc python3-devel -y &>>/tmp/roboshop.log
+  STAT $?
+
+  APP_USER_ADD
+  DOWNLOAD_FROM_GITHUB $1
+
+  HEAD "Install Python Deps"
+  cd /home/roboshop/$1 && pip3 install -r requirements.txt &>>/tmp/roboshop.log
+  STAT $?
+
+  USER_ID=$(id -u roboshop)
+  GROUP_ID=$(id -g roboshop)
+
+  HEAD "Update App Configuration"
+  sed -i -e "/uid/ c uid=${USER_ID}" -e "/gid/ c gid=${GROUP_ID}" /home/roboshop/$1/$1.ini
   STAT $?
 
   SETUP_SYSTEMD "$1"
