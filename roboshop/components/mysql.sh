@@ -20,4 +20,19 @@ HEAD "start mysql server"
 systemctl enable mysqld &>>/tmp/roboshop.log && systemctl start mysqld &>>/tmp/roboshop.log
 STAT $?
 
+HEAD "grab default password"
+DEF_PASS=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';
+uninstall plugin validate_password;" >/tmp/db.sql
+
+echo show databases | mysql -uroot -pRoboShop@1 &>>/tmp/roboshop.log
+if [ $? -ne 0 ]; then
+  HEAD "Reset MySQL Password"
+  mysql --connect-expired-password -uroot -p"${DEF_PASS}" </tmp/db.sql &>>/tmp/roboshop.log
+  STAT $?
+fi
+
+
+
 
